@@ -6,7 +6,9 @@ module.exports = client;
 client.login(token)
 const { REST } = require("@discordjs/rest")
 const { Routes } = require("discord-api-types/v9")
-
+client.on('ready', async () => {
+    console.log(client.user?.tag)
+})
 const commands = []
 client.slashcommands = new Collection()
     const commandfolder = fs.readdirSync(`./slashcommands/`).filter(file => file.endsWith(".js"))
